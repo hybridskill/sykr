@@ -1,0 +1,39 @@
+version: 0.2
+
+#env:
+  #variables:
+     # key: "value"
+     # key: "value"
+  #parameter-store:
+     # key: "value"
+     # key: "value"
+
+phases:
+  #install:
+    #commands:
+      # - command
+      # - command
+  #pre_build:
+    #commands:
+      # - command
+      # - command
+  build:
+    commands:
+       - mvn package
+      # - command
+  post_build:
+    commands:
+       - cd /codebuild/output/src*/src/git-codecommit.us-east-1.amazonaws.com/v1/repos/sykr && ls -ltr target/*
+       - ls -ltr
+       - mkdir build
+       - cp target/sykr-0.0.1-SNAPSHOT.jar build/sykr-$(date +%Y-%m-%H-%M-%S)-SNAPSHOT.jar
+artifacts:
+  files:
+     - build/sykr-*-SNAPSHOT.jar
+     - target/sykr-0.0.1-SNAPSHOT.jar
+    # - location
+  #discard-paths: yes
+  #base-directory: location
+#cache:
+  #paths:
+    # - paths

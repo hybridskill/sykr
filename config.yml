@@ -1,0 +1,8 @@
+logging:
+  level: INFO
+  loggers:
+    org.hybridskill: DEBUG
+healthCheck: ALL FINE
+keyLength: 8
+cypherAlgo: DES
+initVector: 12345678
